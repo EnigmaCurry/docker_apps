@@ -1,0 +1,6 @@
+#!/bin/bash
+
+### Run fresh Firefox inside docker, redirecting to your local X
+### server. Since this exposes your X11 session to the container, this
+### is not to be considered a sandbox by any means.
+alias firefox_clean="docker run --rm -v /tmp/.X11-unix/:/tmp/.X11-unix:ro -v $HOME/Downloads:/home/docker/Downloads -e DISPLAY=$DISPLAY -u docker enigmacurry/firefox firefox"
